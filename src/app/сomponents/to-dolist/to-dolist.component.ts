@@ -7,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ToDolistComponent implements OnInit {
 
-  constructor() { }
+ actions = [];
+  constructor(private userService: UserService) {
+    this.userService.getTodolist().subscribe((toDolist) => {
+      console.log(toDolist);
+       this.actions = toDolist
 
   ngOnInit(): void {
   }
